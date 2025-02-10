@@ -20,7 +20,6 @@
         ]
     },
     "rerun": {
-        "paths": ["src/test/features"],
         "require": [
             "src/test/hooks/hooks.ts", "src/test/steps/*.ts"
         ],
@@ -35,7 +34,8 @@
             "progress-bar",
             "summary",
             "html:results/cucumber-report.html",
-            "json:results/cucumber-report.json"
+            "json:results/cucumber-report.json",
+            "rerun:@rerun.txt"
         ]
     }
 }

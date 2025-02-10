@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test:ui": "npx cucumber-js test src/test/features"
+    "test:ui": "npx cucumber-js test src/test/features",
+    "test:ui-retry": "npx cucumber-js test -p rerun @rerun.txt"
   },
   "keywords": [],
   "author": "",
