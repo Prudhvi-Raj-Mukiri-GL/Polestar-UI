@@ -7,6 +7,7 @@ import CookieHandles from '../utils/CookieHandles'
 data.config()
 
 let page: Page, browser: Browser, context: BrowserContext
+let timeStamp: string
 
 BeforeAll(async ()=>{
     await setBrowser(process.env.browser)
@@ -31,7 +32,8 @@ async function setBrowser(browserName: string) {
 
 After(async ()=>{
     await pageData.page.waitForLoadState('load')
-    await context.tracing.stop({path: 'tracing/fileName.zip'})
+    timeStamp = new Date().toISOString().replaceAll(/[:.-]/g, "_")
+    await context.tracing.stop({path: `tracing/${timeStamp}-trace.zip`})
     await pageData.page.close()
     await context.close()
 })
