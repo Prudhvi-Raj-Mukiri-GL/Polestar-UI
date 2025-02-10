@@ -6,6 +6,7 @@ const myFormat = format.printf(({level, message, timestamp}) => {
 })
 
 const logger = createLogger({
+    level: 'info',
     format: format.combine(
         format.timestamp(),
         myFormat
