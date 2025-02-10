@@ -8,7 +8,7 @@ Feature: Home Page Functionality Checks
     Given User should be on home page
     And Able to see 'Learn more' button
     When User click on the 'Learn more' button
-    Then User should redirect to 'Polestar' page
+    Then User should redirect to 'Learn' page
 
   Scenario: Verify page title by clicking 'Available cars' button
     Given User should be on home page
