@@ -14,4 +14,4 @@
 | Parallel execution            |                   |                    |
 | Cross-browsing                |                   |                    |
 | Error handling                |                   |                    |
-|                               |                   |                    |
+|Failed Test Cases need to create Jira Ticket                       |                   |                    |

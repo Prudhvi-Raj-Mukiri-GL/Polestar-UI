@@ -6,6 +6,7 @@ import HomePage from '../../pages/HomePage'
 import CookieHandles from '../utils/CookieHandles'
 import path = require('path')
 import logger from '../../utils/logger'
+import LoginPage from '../../Pages/LoginPage'
 
 data.config()
 
@@ -26,6 +27,8 @@ Before(async ()=>{
     pageData.page = page
     pageData.homePageInstance = new HomePage(pageData.page)
     pageData.cookieInstance = new CookieHandles(pageData.page)
+    pageData.loginPageInstance = new LoginPage(pageData.page)
+
 })
 
 async function setBrowser(browserName: string) {
