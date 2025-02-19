@@ -33,6 +33,9 @@ export default class HomePage extends PlaywrightActions{
         else if(buttonName.includes('Available')) {
             await this.waitAndClick(this.locator.availableCarsButton.xpath)
         }
+        else if(buttonName.includes('Subscribe')) {
+            await this.waitAndClick(this.locator.subcribeNewsLetter.xpath)
+        }
     }
 
     public async isButtonVisible(buttonName: string) {
@@ -41,6 +44,9 @@ export default class HomePage extends PlaywrightActions{
         }
         else if(buttonName.includes('Available')) {
             await this.isVisible(this.locator.availableCarsButton.xpath)
+        }
+        else if(buttonName.includes('newsletter')) {
+            await this.isVisible(this.locator.subcribeNewsLetter.xpath)
         }
     }
 
