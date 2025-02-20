@@ -11,11 +11,7 @@ export const pageData = {
     page: null as Page,
     homePageInstance: null as HomePage,
     cookieInstance: null as CookieHandles,
-<<<<<<< HEAD
     loginPageInstance: null as LoginPage
+    polestar3MenuPageInstance: null as Polestar3MenuPage
+  newsSubcribePageInstance: null as NewsSubcribePage
 }
-
-=======
-    newsSubcribePageInstance: null as NewsSubcribePage
-}
->>>>>>> 07233bb67e3638b70599a1322d239f379c14c3db
