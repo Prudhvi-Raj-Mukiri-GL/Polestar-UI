@@ -1,6 +1,5 @@
 const { test, expect } = require("@playwright/test")
 import { Page } from "@playwright/test"
-import { pagefixture } from "../src/tests/steps/Pagefixture"
 import playwrightWrapper from "../helper/Wrapper/playwrightWrapper";
 import { locators } from "../Locators/HomepageElements";
 
