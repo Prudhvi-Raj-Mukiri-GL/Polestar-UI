@@ -1,46 +1,63 @@
-import { After, AfterAll, Before, BeforeAll } from '@cucumber/cucumber'
+import { After, AfterAll, Before, BeforeAll, Status } from '@cucumber/cucumber'
 import { Browser, BrowserContext, chromium, Page } from '@playwright/test'
 import * as data from "dotenv"
+import { pageData } from './pageData'
+import HomePage from '../../pages/HomePage'
+import CookieHandles from '../utils/CookieHandles'
+import path = require('path')
+import logger from '../../utils/logger'
+import NewsSubcribePage from '../../pages/NewsSubcribePage'
+
 data.config()
 
 let page: Page, browser: Browser, context: BrowserContext
-
-let homePage
-
-export const pageData: any = {
-    page
-}
-
-export const pagesInstance: any = {
-    homePage
-}
+let timeStamp: string
 
 BeforeAll(async ()=>{
+    logger.info("Setting up the browser")
     await setBrowser(process.env.browser)
+    logger.debug("Completed the browser setup")
+
 })
 
 Before(async ()=>{
     context = await browser.newContext()
-    context.tracing.start({screenshots: true, snapshots: true})
+    await context.tracing.start({screenshots: true, snapshots: true})
     page = await context.newPage()
-
-    //homePage = new 
+    pageData.page = page
+    pageData.homePageInstance = new HomePage(pageData.page)
+    pageData.cookieInstance = new CookieHandles(pageData.page)
+    pageData.newsSubcribePageInstance = new NewsSubcribePage(pageData.page)
 })
 
 async function setBrowser(browserName: string) {
-    if(browserName == 'chrome') {
-        browser = await chromium.launch({headless: Boolean(process.env.headless), channel:'chrome'})
-    } else if(browserName == 'msedge') {
-        browser = await chromium.launch({headless: Boolean(process.env.headless), channel:'msedge'})
+    try {
+        if(browserName == 'chrome') {
+            logger.info("Setting up the chrome browser")
+            browser = await chromium.launch({headless: process.env.headless === 'true', channel:'chrome'})
+            logger.debug("Completed the chrome browser setup")
+        } else if(browserName == 'msedge') {
+            logger.info("Setting up the edge browser")
+            browser = await chromium.launch({headless: process.env.headless === 'true', channel:'msedge'})
+            logger.debug("Completed the edge browser setup")
+        }
+    }
+    catch(e) {
+        logger.error("Failed to create the browser with: "+e.message)
     }
 }
 
-After(async ()=>{
-    context.tracing.stop({path: 'tracing/fileName.zip'})
-    context.close()
-    page.close()
+After(async ({pickle, result})=>{
+    await pageData.page.waitForLoadState('load')
+    timeStamp = new Date().toISOString().replaceAll(/[:.-]/g, "_")
+    if(result.status == Status.FAILED) {
+        await pageData.page.screenshot({path: `results/screenshots/${pickle.name}-${timeStamp}.png`, type: 'png'})
+    }
+    await context.tracing.stop({path: `tracing/${timeStamp}-trace.zip`})
+    await pageData.page.close()
+    await context.close()
 })
 
-AfterAll(()=>{
-    browser.close()
+AfterAll(async ()=>{
+    await browser.close()
 })

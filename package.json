@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test:ui": "npx cucumber-js test src/test/features"
+    "test:ui": "npx cucumber-js test src/test/features",
+    "test:ui-retry": "npx cucumber-js test -p rerun @rerun.txt",
+    "ui-report-gen": "npx ts-node src/utils/ReportsGenerator.ts"
   },
   "keywords": [],
   "author": "",
@@ -13,10 +15,12 @@
   "devDependencies": {
     "@cucumber/cucumber": "^11.2.0",
     "@playwright/test": "^1.50.1",
-    "@types/node": "^22.13.1"
+    "@types/node": "^22.13.1",
+    "multiple-cucumber-html-reporter": "^3.8.0"
   },
   "dependencies": {
     "dotenv": "^16.4.7",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "winston": "^3.17.0"
   }
 }
