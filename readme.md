@@ -13,4 +13,5 @@
 | Capturing screenshots         |                   |                    |
 | Parallel execution            |                   |                    |
 | Cross-browsing                |                   |                    |
+| Error handling                |                   |                    |
 |                               |                   |                    |
