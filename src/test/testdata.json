@@ -1,5 +1,10 @@
 {
     "homePageTitle": "Polestar – Electric cars | Polestar Canada",
     "learnMorePageTitle": "Polestar 3 | Polestar Canada",
-    "availableCarPageTitle": "Available cars: pre-configured cars for fast delivery | Polestar Canada"
+    "availableCarPageTitle": "Available cars: pre-configured cars for fast delivery | Polestar Canada",
+    "email": "demo@demo.com",
+    "password": "demotest",
+    "withoutInputData": "Please fill in all the required information",
+    "inValidData": "We didn't recognize the username or password you entered. Please try again."
 }
+
