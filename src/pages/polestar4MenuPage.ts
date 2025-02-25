@@ -26,10 +26,6 @@ export default class Polestar4MenuPage extends PlaywrightActions {
         await this.page.locator(this.locator.DiscoverPoleStar4.xpath).click();
     }
 
-    // async verifyPerformancePanel() {
-    //     await this.waitAndClick(this.locator.PerformancePanel.xpath);
-    // }
-
     async VerifyTextinPerformancePanel() {
         await expect(this.page.locator(this.locator.TextinPolestar4MenuPanel.xpath)).toBeVisible()
     }

@@ -7,11 +7,7 @@ export class locators {
         xpath: "//div[@class='css-tyurac']//a[@aria-label='Discover Polestar 4']",
         description: "DiscoverPoleStar4 Locator"
     }
-    // PerformancePanel = {
-    //     xpath: "//section[@class='css-1w3ljve']//span[@class='css-1wq7bbr']",
-    //     description: "OverviewPanel Locator"
-    // }
-
+    
     TextinPolestar4MenuPanel = {
         xpath: "//a[@class='css-wwd32w']",
         description: "TextinPolestar4MenuPanel Locator"

@@ -1,5 +1,5 @@
 import { Given, Then, setDefaultTimeout } from "@cucumber/cucumber";
-import {expect } from '@playwright/test'
+import { expect } from '@playwright/test'
 import { pageData } from "../hooks/pageData";
 
 setDefaultTimeout(80 * 1000)

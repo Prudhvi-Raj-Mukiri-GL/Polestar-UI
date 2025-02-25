@@ -24,10 +24,10 @@ When('User clicks on the Login button', async function () {
 });
 
 Given('User is on Account Menu Page', async function () {
-    await pageData.loginPageInstance.VerifyaccountMenu();
-  });
+  await pageData.loginPageInstance.VerifyaccountMenu();
+});
 
-  Then('Login should display with the validation Message', async function () {
+Then('Login should display with the validation Message', async function () {
   await pageData.page.waitForTimeout(6000)
   await pageData.loginPageInstance.VerifyerrorValidation();
 });
