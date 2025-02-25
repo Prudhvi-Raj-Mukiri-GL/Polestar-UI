@@ -1,18 +1,19 @@
 import { Given, Then, setDefaultTimeout } from "@cucumber/cucumber";
-import { pagefixture } from "./Pagefixture";
+import {expect } from '@playwright/test'
+import { pageData } from "../hooks/pageData";
 
 setDefaultTimeout(80 * 1000)
 
 Given('User clicks on the Polestar3 Menu Option', async function () {
-  await pagefixture.page.waitForTimeout(5000)
-  await pagefixture.verifypolestarmenu.verifyPolestar3MenuOption();
+  await pageData.page.waitForTimeout(5000)
+  await pageData.polestar3MenuPageInstance.verifyPolestar3MenuOption();
 });
 
 Given('User should Hover on the Test Drive Option', async function () {
-  await pagefixture.verifypolestarmenu.verifyHover();
+  await pageData.polestar3MenuPageInstance.verifyHover();
 });
 
 Then('Then it should redirect to Book your test Drive Screen', async function () {
-  await pagefixture.page.waitForTimeout(8000)
-  await pagefixture.verifypolestarmenu.VerifyTestDriveText();
+  await pageData.page.waitForTimeout(8000)
+  await pageData.polestar3MenuPageInstance.VerifyTestDriveText();
 });

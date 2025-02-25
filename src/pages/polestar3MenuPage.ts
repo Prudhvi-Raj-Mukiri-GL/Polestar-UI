@@ -1,17 +1,18 @@
 const { test, expect } = require("@playwright/test")
 import { Page } from "@playwright/test"
-import playwrightWrapper from "../helper/Wrapper/playwrightWrapper";
-import { locators } from "../Locators/HomepageElements";
+import { locators } from "../elements/polestar3Menu-locator";
+import { pageData } from "../test/hooks/pageData";
+import PlaywrightActions from "../playwright/Actions";
 
 
-class checkingmenuPage extends playwrightWrapper {
+export default class Polestar3MenuPage extends PlaywrightActions {
     locator: locators;
     polestar3Menu: any
     HoveronTestDrive: any
     TestDriveText: any
 
     constructor(page) {
-        super(pagefixture.page)
+        super(pageData.page)
         this.page = page;
         this.locator = new locators();
     }
@@ -31,4 +32,3 @@ class checkingmenuPage extends playwrightWrapper {
 
 }
 
-export default checkingmenuPage;

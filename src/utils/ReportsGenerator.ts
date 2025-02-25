@@ -10,7 +10,7 @@ report.generate({
         name: 'chrome',
         version: 'latest'
     },
-    device: 'Prudhvi PC',
+    device: 'Windows PC',
     platform: {
         name: 'ubuntu',
         version: 'latest'
