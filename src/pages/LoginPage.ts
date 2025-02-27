@@ -3,7 +3,6 @@ import PlaywrightActions from "../playwright/Actions";
 import * as data from '../test/testdata.json'
 import { locators } from "../elements/login-locators";
 import { setDefaultTimeout } from "@cucumber/cucumber";
-import { TIMEOUT } from "dns";
 
 setDefaultTimeout(60*1000)
 export default class LoginPage extends PlaywrightActions{

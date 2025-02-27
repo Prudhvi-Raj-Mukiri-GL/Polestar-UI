@@ -1,4 +1,4 @@
-Feature: Access to URL
+Feature: Verify Login Page
 
   Background:
   Given User should navigate to url

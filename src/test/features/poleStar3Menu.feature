@@ -1,8 +1,8 @@
-Feature: Access the URL
+Feature: Verifying Polestar3Menu
 
   Background:
-    Given User should access the URL
-    And User should accept cookies
+  Given User should navigate to url
+    And User should handle cookies
 
   Scenario: Checking TestDrive Option
     Given User clicks on the Polestar3 Menu Option

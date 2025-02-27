@@ -6,12 +6,10 @@ import HomePage from '../../pages/HomePage'
 import CookieHandles from '../utils/CookieHandles'
 import path = require('path')
 import logger from '../../utils/logger'
-<<<<<<< HEAD
-import LoginPage from '../../Pages/LoginPage'
-=======
+import LoginPage from '../../pages/LoginPage'
 import NewsSubcribePage from '../../pages/NewsSubcribePage'
->>>>>>> 07233bb67e3638b70599a1322d239f379c14c3db
-
+import Polestar3MenuPage from '../../pages/polestar3MenuPage'
+import Polestar4MenuPage from '../../pages/polestar4MenuPage'
 data.config()
 
 let page: Page, browser: Browser, context: BrowserContext
@@ -32,8 +30,10 @@ Before(async ()=>{
     pageData.homePageInstance = new HomePage(pageData.page)
     pageData.cookieInstance = new CookieHandles(pageData.page)
     pageData.loginPageInstance = new LoginPage(pageData.page)
-
     pageData.newsSubcribePageInstance = new NewsSubcribePage(pageData.page)
+    pageData.polestar3MenuPageInstance = new Polestar3MenuPage(pageData.page)
+    pageData.polestar4MenuPageInstance = new Polestar4MenuPage(pageData.page)
+
 })
 
 async function setBrowser(browserName: string) {
